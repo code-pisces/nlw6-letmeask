@@ -2,7 +2,6 @@ import { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 
 export const MyButton = styled.button`
-  margin-top: 4rem;
   height: 3.125rem;
   border-radius: 0.5rem;
   font-weight: 500;
