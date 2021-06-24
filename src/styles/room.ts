@@ -22,6 +22,15 @@ export const Content = styled.div`
   > img {
     max-height: 2.813rem;
   }
+
+  > div {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      height: 2.5rem;
+    }
+  }
 `;
 
 export const ContentMain = styled.main`
@@ -100,4 +109,8 @@ export const UserInfo = styled.div`
     font-weight: 500;
     font-size: 0.875rem;
   }
+`;
+
+export const QuestionList = styled.div`
+  margin-top: 2rem;
 `;

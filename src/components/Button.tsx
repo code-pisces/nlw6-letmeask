@@ -1,7 +1,11 @@
 import { ButtonHTMLAttributes } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const MyButton = styled.button`
+type ButtonStyledProps = {
+  isOutlined?: boolean;
+};
+
+export const MyButton = styled.button<ButtonStyledProps>`
   height: 3.125rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -22,6 +26,14 @@ export const MyButton = styled.button`
     margin-right: 0.5rem;
   }
 
+  ${({ isOutlined }) =>
+    isOutlined &&
+    css`
+      background: #fff;
+      border: 1px solid #835afd;
+      color: #835afd;
+    `}
+
   &:not(:disabled):hover {
     filter: brightness(0.9);
   }
@@ -32,8 +44,10 @@ export const MyButton = styled.button`
   }
 `;
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  isOutlined?: boolean;
+};
 
-export function Button(props: ButtonProps) {
-  return <MyButton {...props} />;
+export function Button({ isOutlined = false, ...props }: ButtonProps) {
+  return <MyButton isOutlined={isOutlined} {...props} />;
 }
